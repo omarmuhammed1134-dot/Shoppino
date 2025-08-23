@@ -51,7 +51,7 @@ function ProductDetails() {
             <h3 className="text-success fw-bold mb-4">${product.price}</h3>
 
             <div className="d-flex gap-3">
-              <NavLink to={`/cart/${product.id}`}>
+              <NavLink to>
                 <button className="btn btn-primary px-4">
                   <i className="bi bi-cart me-2"></i>
                   Add to Cart

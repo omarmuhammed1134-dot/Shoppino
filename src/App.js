@@ -5,8 +5,10 @@ import Sidebar from './components/sidebar';
 import Products from './components/products';
 import Navbar from './components/navbar';
 import ProductDetails from './components/productDetails';
-import Cart from './components/cart';
 import Home from './components/home';
+import CustomerDashboard from './components/customerdashboard';
+import AdminDashboard from './components/admindashboard';
+import Cart from './components/cart';
 
 
 function App() {
@@ -17,11 +19,14 @@ function App() {
         <Sidebar />
 
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard/customer" element={<CustomerDashboard />} />
+          <Route path="/dashboard/admin"element={<AdminDashboard/>} />
          <Route path= "/home" element={<Home />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/cart/:id" element={< Cart/>} />
+          <Route path="cart" element={<Cart />} /> 
         </Routes>
       </div>
     </div>

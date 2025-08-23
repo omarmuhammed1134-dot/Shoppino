@@ -8,6 +8,9 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [filterItem, setfilteritem] = useState("All");
+  const [searchFilter, setsearchFilter] = useState("");
+
   useEffect(() => {
     Product()
       .then((response) => {
@@ -19,37 +22,87 @@ function Products() {
       .finally(() => setLoading(false));
   }, []);
 
+  const filterproducts = products.filter((p) => {
+    const Category =
+      filterItem === "All" ||
+      p.category.toLowerCase() === filterItem.toLowerCase();
+
+    const Search =
+      p.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchFilter.toLowerCase());
+
+    return Category && Search;
+  });
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center min-vh-100 w-100">
-          <div className="spinner-border text-primary" role="status">
-          </div>
-          <h2 className="ms-3">Loading Products...</h2>
-        </div>
+        <div className="spinner-border text-primary" role="status"></div>
+        <h2 className="ms-3">Loading Products...</h2>
+      </div>
     );
   }
-
 
   return (
     <div className="container my-5 ">
       <h2 className="text-center mb-4">Our Products</h2>
-      <div className="my-4 fs-5 ">
-      <a className="text-muted text-decoration-none mx-2 " href="">All</a>
-      <a className="text-muted text-decoration-none mx-2 " href="">Mens</a>
-      <a className="text-muted text-decoration-none mx-2 " href="">Women's</a>
-      <a className="text-muted text-decoration-none mx-2 " href="">Jewelery</a> 
+      <div className="my-4 ">
+        <button
+          className={`btn btn-link mx-2 fs-5 text-decoration-none ${
+            filterItem === "All"
+              ? "active text-primary fw-bold text-decoration-underline"
+              : "text-muted"
+          }`}
+          onClick={() => setfilteritem("All")}
+        >
+          All
+        </button>
+
+        <button
+          className={`btn btn-link mx-2 fs-5 text-decoration-none  ${
+            filterItem === "men's clothing"
+              ? "active text-primary fw-bold text-decoration-underline"
+              : "text-muted"
+          }`}
+          onClick={() => setfilteritem("men's clothing")}
+        >
+          Men's
+        </button>
+
+        <button
+          className={`btn btn-link mx-2 fs-5 text-decoration-none ${
+            filterItem === "women's clothing"
+              ? "active text-primary fw-bold text-decoration-underline"
+              : "text-muted"
+          }`}
+          onClick={() => setfilteritem("women's clothing")}
+        >
+          Women's
+        </button>
+
+        <button
+          className={`btn btn-link mx-2 fs-5 text-decoration-none ${
+            filterItem === "jewelery"
+              ? "active text-primary fw-bold text-decoration-underline"
+              : "text-muted"
+          }`}
+          onClick={() => setfilteritem("jewelery")}
+        >
+          Jewelery
+        </button>
       </div>
       <div className="d-flex my-4">
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Search For Products . . . ."
-      />
-      <button className="btn btn-primary ms-2">Search</button>
-    </div>
-      
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search For Products . . . ."
+          onChange={(e) => setsearchFilter(e.target.value)}
+        />
+        <button className="btn btn-primary ms-2">Search</button>
+      </div>
+
       <div className="row">
-        {products.map((product) => (
+        {filterproducts.map((product) => (
           <div key={product.id} className="col-md-4 col-lg-3 mb-4">
             <div className="card h-100 shadow-sm bg-light">
               <img
@@ -70,7 +123,7 @@ function Products() {
                   <h6 className="text-success fw-bold">${product.price}</h6>
                   <NavLink to={`/products/${product.id}`}>
                     <button className="btn btn-primary w-100">
-                      Product details
+                      View Product 
                     </button>
                   </NavLink>
                 </div>

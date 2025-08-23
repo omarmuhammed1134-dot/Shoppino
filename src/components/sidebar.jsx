@@ -3,12 +3,13 @@ import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./sidebar.css";
 
+
 function Sidebar() {
   return (
     <>
       <div
         className="bg-light text-dark p-3 mt-4 card mx-2 shadow-lg"
-        style={{ minWidth: "260px", height: "110vh" }}
+        style={{ minWidth: "260px", height: "140vh" }}
       >
         <p className="fs-4">Dashboard</p>
         <hr />
@@ -21,14 +22,37 @@ function Sidebar() {
             <span className="mx-1 fw-semibold">Home</span>
           </NavLink>
 
-          <NavLink
-            to="/Analytics"
-            className="nav-link text-dark border rounded-pill px-3 py-2 custom-hover mb-3"
-          >
-            <i className="bi bi-clipboard-data">
-              <span className="mx-1 fw-semibold">Analytics</span>
-            </i>
-          </NavLink>
+ <div className="nav flex-column">
+
+  <div className="nav-item dropdown mb-3">
+    <button
+      className="btn btn-light border rounded-pill px-3 py-2 w-100 d-flex justify-content-between align-items-center"
+      data-bs-toggle="collapse"
+      data-bs-target="#dashboardMenu"
+      aria-expanded="false"
+    >
+      <span><i className="bi bi-clipboard-data me-2"></i> Dashboard</span>
+      <i className="bi bi-caret-down-fill"></i>
+    </button>
+
+    <div id="dashboardMenu" className="collapse mt-2 ps-3">
+      <NavLink
+        to="/dashboard/customer"
+        className="nav-link text-dark border rounded-pill px-3 py-2 custom-hover mb-2"
+      > 
+        Customer Dashboard
+      </NavLink>
+      <NavLink
+        to="/dashboard/admin"
+        className="nav-link text-dark border rounded-pill px-3 py-2 custom-hover"
+      >
+        Admin Dashboard
+      </NavLink>
+    </div>
+  </div>
+
+</div>
+
           <NavLink
             to="/overview"
             className="nav-link text-dark border rounded-pill px-3 py-2 custom-hover mb-3"

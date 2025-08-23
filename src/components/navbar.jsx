@@ -1,14 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
         <div className="container-fluid mx-5 pb-2">
-          <a className="navbar-brand fs-3 text-primary fw-bold" href="#">
+          <NavLink to="/home" 
+          className="navbar-brand fs-3 text-primary fw-bold">
             🛍️ SHOPPINO
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,9 +31,14 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink to="/login" className="nav-link" >
                   <i className="bi bi-person circle fs-4"></i>
-                </a>
+                </NavLink>
+              </li>
+               <li className="nav-item">
+                <NavLink to="/cart" className="nav-link" >
+                   <i className="bi bi-cart fs-4"></i>
+                </NavLink>
               </li>
             </ul>
           </div>

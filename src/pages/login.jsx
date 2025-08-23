@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import loginImg from '../assets/images/login-v2.svg';
 import {login} from '../services/authService'
 
@@ -40,8 +40,6 @@ function Login() {
     <div className="auth-wrapper auth-v2 d-flex align-items-center justify-content-center">
       <div className="auth-inner row m-0">
 
-
-        {/* Left Text */}
         <div className="d-none d-lg-flex col-lg-7 align-items-center p-5">
           <div className="w-100 d-lg-flex align-items-center justify-content-center px-5">
             <img
@@ -52,7 +50,6 @@ function Login() {
           </div>
         </div>
 
-        {/* Login */}
 <div className="d-flex col-lg-5 align-items-center justify-content-center auth-bg px-3 p-lg-5 " 
 
 >
@@ -67,7 +64,7 @@ function Login() {
     )}
 
     <form onSubmit={handleSubmit} className="mt-3">
-      {/* Email */}
+
       <div className="mb-3">
         <label htmlFor="login-email" className="form-label">Email</label>
         <input
@@ -112,14 +109,12 @@ function Login() {
         </div>
       </div>
 
-      {/* Remember Me */}
       <div className="form-check mb-3">
         <input className="form-check-input" type="checkbox" id="remember-me" />
         <label className="form-check-label" htmlFor="remember-me">Remember Me</label>
       </div>
 
-      {/* Submit Button */}
-      <button
+      < button
         disabled={loading}
         className="btn btn-primary w-100"
         type="submit"
@@ -154,7 +149,7 @@ function Login() {
   </div>
 </div>
 
-        {/* /Login */}
+
       </div>
     </div>
   );
