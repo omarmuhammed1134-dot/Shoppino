@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# 🛍️ React E-commerce Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **React-based e-commerce application** with role-based dashboards for **Admin** and **Customer**.  
+The project follows a clean architecture with **contexts** and **services**, ensuring scalability and reusability.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Features
 
-### `npm start`
+### 🔑 Authentication & Authorization
+- Secure **Login** with **Protected Routes** (`PrivateRoute.js`).
+- **Role-based Dashboards**:
+  - **Admin Dashboard** → Manage products & users.
+  - **Customer Dashboard** → Browse products, view details, and add to cart.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🛍️ E-commerce Functionalities
+- **Product Listing** (`products.jsx`).
+- **Product Details Page** (`productDetails.jsx`).
+- **Shopping Cart** with global state (`CartContext.js`).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🧭 Navigation
+- **Reusable Navbar** and **Sidebar** components.
 
-### `npm test`
+### ⚙️ Services Layer
+- `apiServices.js` → Handles API requests.
+- `authService.js` → Login / Logout management.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎨 UI/UX
+- Built with **React + Bootstrap** for a responsive, modern UI.
+- **Clean component structure** for easy maintenance & scalability.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tech Stack
+- **Frontend:** React, React Router, Bootstrap  
+- **State Management:** React Context API  
+- **Authentication:** Custom Auth Service + Protected Routes  
+- **API Handling:** Axios / Fetch (`apiServices.js`)  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+project Structure
+--------------------
 
-### `npm run eject`
+src/
+│── components/           # Reusable UI components
+│   ├── admindashboard.jsx
+│   ├── customerdashboard.jsx
+│   ├── cart.jsx
+│   ├── home.jsx
+│   ├── navbar.jsx / navbar.css
+│   ├── productDetails.jsx
+│   ├── products.jsx
+│   ├── sidebar.jsx / sidebar.css
+│
+│── context/              # Global state management
+│   ├── AuthContext.js
+│   ├── CartContext.js
+│
+│── pages/                # Page-level components
+│   ├── login.jsx
+│
+│── routes/               # Routing & Protected routes
+│   ├── privateRoute.js
+│
+│── services/             # API & Authentication logic
+│   ├── apiServices.js
+│   ├── authService.js
+│
+│── App.js                # Main application entry point
+│── index.js              # ReactDOM entry
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Installation & Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/omarmuhammed1134-dot/Shoppino.git
+   cd react-ecommerce
