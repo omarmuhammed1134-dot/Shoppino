@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState , useContext  } from "react";
 import { Link, } from "react-router-dom";
 import loginImg from '../assets/images/login-v2.svg';
 import {login} from '../services/authService'
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -10,6 +12,8 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [passwordTextType, setPasswordTextType] = useState(false);
+  const navigate = useNavigate()
+  const { loginAuth } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +28,9 @@ function Login() {
 
     login(email, password)
       .then((data) => {
-        console.log(data);
+        loginAuth()
+        navigate("/home")
+
       })
       .catch((error) => {
         setError(error.response.data.message);
@@ -124,33 +130,10 @@ function Login() {
       </button>
     </form>
 
-
-
-    {/* Divider */}
-    <div className="text-center my-3">
-      <span className="text-muted">──────── or ────────</span>
-    </div>
-
-    {/* Social Buttons */}
-    <div className="d-flex justify-content-center gap-2">
-      <button className="btn btn-outline-primary">
-        <i className="bi bi-facebook"></i>
-      </button>
-      <button className="btn btn-outline-info">
-        <i className="bi bi-twitter"></i>
-      </button>
-      <button className="btn btn-outline-danger">
-        <i className="bi bi-google"></i>
-      </button>
-      <button className="btn btn-outline-dark">
-        <i className="bi bi-github"></i>
-      </button>
     </div>
   </div>
 </div>
 
-
-      </div>
     </div>
   );
 }

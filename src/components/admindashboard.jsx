@@ -33,7 +33,7 @@ function AdminDashboard() {
       <h2 className="mb-4 text-primary">Admin Dashboard</h2>
 
       <div className="row mb-4">
-        <div className="col-md-12">
+        <div className="col-md-12 col-sm-6">
           <div className="card shadow-sm text-center p-3">
             <h5>Total Products</h5>
             <h3 className="text-primary">{totalProducts}</h3>
@@ -42,8 +42,9 @@ function AdminDashboard() {
       </div>
 
       <div className="card shadow-sm">
-        <div className="card-body">
+        <div className="card-body col-md-12 col-sm-12">
           <h4 className="card-title mb-3">Products List</h4>
+          <div className="table-responsive">
           <table className="table table-hover align-middle">
             <thead className="table-light">
               <tr>
@@ -84,6 +85,7 @@ function AdminDashboard() {
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </div>
   );

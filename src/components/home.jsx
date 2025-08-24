@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   return (
@@ -10,9 +11,11 @@ function Home() {
           <p className="text-muted fs-5">
             Wishing you a productive day and smooth store management.
           </p>
-          <button className="btn btn-primary mt-3">
-            Get Started
-          </button>
+          <NavLink to="/products">
+            <button className="btn btn-primary mt-3">
+              Get Started
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>

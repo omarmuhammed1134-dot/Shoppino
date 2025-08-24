@@ -1,14 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function CustomerDashboard() {
   const user = {
-    name: "Admin",
-    email: "Admin@example.com",
+    name: "Customer",
+    email: "Customer@example.com",
     role: "Customer",
   };
 
   return (
-    <div className="container my-4 bg-light">
+    <div className="container my-4">
       <div className="row g-4">
         
         <div className="col-md-5">
@@ -47,16 +48,16 @@ function CustomerDashboard() {
               <div className="d-flex justify-content-around text-center my-4">
                 <div>
                   <i className="bi bi-cart fs-1 text-primary"></i>
-                  <h5 className="mt-2"> Items</h5>
                 </div>
                 <div>
                   <i className="bi bi-cash-stack fs-1 text-success"></i>
-                  <h5 className="mt-2">Cash</h5>
                 </div>
               </div>
 
-              <div className="d-grid">
+              <div className="d-grid text-center">
+                <NavLink to="/cart">
                 <button className="btn btn-primary">View Cart</button>
+                </NavLink>
               </div>
             </div>
           </div>
