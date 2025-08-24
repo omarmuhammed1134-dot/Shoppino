@@ -39,37 +39,37 @@ The project follows a clean architecture with **contexts** and **services**, ens
 
 ---
 
-project Structure
---------------------
+## 📂 Project Map (Mermaid)
 
-src/
-│── components/           # Reusable UI components
-│   ├── admindashboard.jsx
-│   ├── customerdashboard.jsx
-│   ├── cart.jsx
-│   ├── home.jsx
-│   ├── navbar.jsx / navbar.css
-│   ├── productDetails.jsx
-│   ├── products.jsx
-│   ├── sidebar.jsx / sidebar.css
-│
-│── context/              # Global state management
-│   ├── AuthContext.js
-│   ├── CartContext.js
-│
-│── pages/                # Page-level components
-│   ├── login.jsx
-│
-│── routes/               # Routing & Protected routes
-│   ├── privateRoute.js
-│
-│── services/             # API & Authentication logic
-│   ├── apiServices.js
-│   ├── authService.js
-│
-│── App.js                # Main application entry point
-│── index.js              # ReactDOM entry
+```mermaid
+graph TD;
+    src --> components;
+    src --> context;
+    src --> pages;
+    src --> routes;
+    src --> services;
+    src --> App.js;
+    src --> index.js;
 
+    components --> admindashboard.jsx;
+    components --> customerdashboard.jsx;
+    components --> cart.jsx;
+    components --> home.jsx;
+    components --> navbar.jsx;
+    components --> productDetails.jsx;
+    components --> products.jsx;
+    components --> sidebar.jsx;
+
+    context --> AuthContext.js;
+    context --> CartContext.js;
+
+    pages --> login.jsx;
+
+    routes --> privateRoute.js;
+
+    services --> apiServices.js;
+    services --> authService.js;
+ ----------------------------------------------------------
 
 ## 🚀 Installation & Setup
 
