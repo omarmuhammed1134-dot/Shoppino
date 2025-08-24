@@ -1,23 +1,21 @@
-import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./sidebar.css";
-import { AuthContext } from "../context/AuthContext";
+  import React, { useContext } from "react";
+  import { NavLink, useNavigate } from "react-router-dom";
+  import "bootstrap/dist/css/bootstrap.min.css";
+  import "bootstrap/dist/js/bootstrap.bundle.min.js";
+  import "./sidebar.css";
+  import { AuthContext } from "../context/AuthContext";
 
-function Sidebar() {
-  const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
+  function Sidebar() {
+    const { logout } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
+    const handleLogout = () => {
+      logout();
+      navigate("/login");
+    };
 
-  return (
-    <>
-      <div
-        className="bg-light text-dark p-3 mt-4 card mx-2 shadow-lg d-flex flex-column slider"
-      >
+    const sidebarContent = (
+      <>
         <p className="fs-4 fw-semibold text-primary">Dashboard</p>
         <hr />
         <nav className="nav flex-column flex-grow-1">
@@ -100,15 +98,54 @@ function Sidebar() {
             <span className="mx-1 fw-semibold">About</span>
           </NavLink>
         </nav>
+
         <div className="mt-auto">
-          <button onClick={handleLogout} className="btn btn-outline-danger w-50">
+          <button
+            onClick={handleLogout}
+            className="btn btn-outline-danger w-50"
+          >
             <i className="bi bi-box-arrow-right me-2"></i>
             Logout
           </button>
         </div>
-      </div>
-    </>
-  );
-}
+      </>
+    );
 
-export default Sidebar;
+    return (
+      <>
+        <button
+          className="btn btn-primary d-md-none m-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileSidebar"
+          aria-controls="mobileSidebar"
+        >
+          ☰ 
+        </button>
+        <div
+          className="offcanvas offcanvas-start"
+          tabIndex="-1"
+          id="mobileSidebar"
+        >
+          <div className="offcanvas-header">
+            <h5 className="offcanvas-title">Menu</h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <div className="offcanvas-body d-flex flex-column">
+            {sidebarContent}
+          </div>
+        </div>
+        <div
+          className="bg-light text-dark p-3 mt-4 card mx-2 shadow-lg d-none d-md-flex flex-column slider"
+        >
+          {sidebarContent}
+        </div>
+      </>
+    );
+  }
+
+  export default Sidebar;

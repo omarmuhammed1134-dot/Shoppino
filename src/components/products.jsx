@@ -44,7 +44,7 @@ function Products() {
   }
 
   return (
-    <div className="container my-5 ">
+    <div className="container my-5 col-md-9 ">
       <h2 className="text-center mb-4">Our Products</h2>
       <div className="my-4 ">
         <button
@@ -103,7 +103,7 @@ function Products() {
 
       <div className="row">
         {filterproducts.map((product) => (
-          <div key={product.id} className="col-md-4 col-lg-3 mb-4">
+          <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
             <div className="card h-100 shadow-sm bg-light">
               <img
                 src={product.image}
